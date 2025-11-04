@@ -19,9 +19,10 @@ pnpm-lock.yaml
 .rslib/
 
 # DNSControl
+creds.json
+config/zones/
 packages/dnscontrol/types.d.ts
 
 # --- Build artifacts ---
 # Compiled output
 dist/
-

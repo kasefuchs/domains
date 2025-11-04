@@ -1,0 +1,7 @@
+---
+records:
+  NS:
+    - target: ns71.cloudns.net.
+    - target: ns72.cloudns.com.
+    - target: ns73.cloudns.net.
+    - target: ns74.cloudns.uk.

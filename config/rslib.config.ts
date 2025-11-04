@@ -1,4 +1,4 @@
-import {defineConfig} from "@rslib/core";
+import { defineConfig } from "@rslib/core";
 
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig({
@@ -8,7 +8,7 @@ export default defineConfig({
       syntax: "es5",
       banner: {
         // language=JavaScript
-        js: "var global = this;"
+        js: "var global = this;",
       },
     },
   ],
