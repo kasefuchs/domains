@@ -1,0 +1,11 @@
+---
+records:
+  NS:
+    - target: ns1.desec.io.
+    - target: ns2.desec.org.
+
+  DS:
+    - keyTag: 5498
+      algorithm: 13
+      digestType: 2
+      digest: 0b611b1455a0734e5287f06c235831ce65d603cb02a8748bb9c1236a477e2d21
