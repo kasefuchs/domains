@@ -14,6 +14,11 @@ node_modules/
 # Lockfiles
 pnpm-lock.yaml
 
+# --- Python ---
+# Dependencies
+.venv/
+__pycache__/
+
 # --- Tools / Bundlers ---
 # Rspack / Rslib
 .rslib/
@@ -24,6 +29,12 @@ creds.*.json
 config/zones/
 packages/dnscontrol/types.d.ts
 
+# MKDocs
+.cache/
+
 # --- Build artifacts ---
 # Compiled output
 dist/
+
+# Generated docs
+docs/build/
