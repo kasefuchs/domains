@@ -1,0 +1,52 @@
+[project]
+docs_dir = "pages/"
+site_dir = "build/"
+
+site_name = "Domains"
+site_url = "https://domains.kasefuchs.net"
+
+repo_url = "https://github.com/kasefuchs/domains"
+repo_name = "kasefuchs/domains"
+edit_uri = "edit/main/docs/pages"
+
+nav = [
+  { "Home" = "index.md" },
+  { "Guide" = [
+    { "Registration" = "guide/request.md" },
+    { "DNS Records" = "guide/records.md" }
+  ] },
+  { "Delegation" = [
+    "delegation/index.md",
+    { "ClouDNS" = "delegation/cloudns.md" },
+    { "DeSEC" = "delegation/desec.md" }
+  ] }
+]
+
+[project.theme]
+language = "en"
+features = [
+  "content.action.edit",
+  "content.action.view",
+  "navigation.tabs",
+  "navigation.top"
+]
+
+[project.theme.icon]
+logo = "lucide/globe"
+repo = "lucide/github"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "indigo"
+accent = "indigo"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "indigo"
+accent = "orange"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
