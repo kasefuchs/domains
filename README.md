@@ -4,7 +4,6 @@
 
 <p align="center"> Free subdomains for all your projects and ideas.
     <br>
-    <b>English</b> | <a href="README.ru.md">Русский</a>
 </p>
 
 ## Website & Documentation

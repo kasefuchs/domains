@@ -12,7 +12,6 @@ import {
   type SRVRecord,
   type TXTRecord,
   type RecordFactories,
-  type ALIASRecord,
 } from "@/types";
 
 const recordFactories: RecordFactories = {
@@ -44,9 +43,7 @@ const recordFactories: RecordFactories = {
     { keyTag, algorithm, digestType, digest }: DSRecord,
     name,
     modifiers,
-  ) => DS(name, keyTag, algorithm, digestType, digest, modifiers),
-  [RecordType.ALIAS]: ({ target }: ALIASRecord, name, modifiers) =>
-    ALIAS(name, target, modifiers),
+  ) => DS(name, keyTag, algorithm, digestType, digest, modifiers)
 };
 
 export function recordToDomainModifier<T extends keyof RecordMap>(
