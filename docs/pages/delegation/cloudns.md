@@ -9,6 +9,7 @@ title: Delegating via ClouDNS
 
 1. If you don't have an account - [sign up](https://www.cloudns.net/).
 2. After signing in to your account, click **"Available name servers"** and copy them into your subdomain file. Example:
+
 ```yaml
 ---
 records:
@@ -18,5 +19,6 @@ records:
     - target: ns73.cloudns.net.
     - target: ns74.cloudns.uk.
 ```
+
 3. Then click **"Create zone"** and select **"Master zone"**.
 4. Choose **"Create with NS records"**, enter `<your-subdomain>.floof.fans` in the **"Domain name"** field, and click **"Create"**.
