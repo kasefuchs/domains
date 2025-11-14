@@ -1,8 +1,0 @@
----
-owners:
-  - neurofumo
-  - repoclones
-
-records:
-  CNAME:
-    - target: nurox.pages.dev.
