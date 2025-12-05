@@ -1,0 +1,14 @@
+---
+owners:
+  - hoangxg4
+
+records:
+  NS:
+    - target: ns1.onii.pp.ua.
+    - target: ns2.onii.po.ua.
+
+  DS:
+    - keyTag: 32967
+      algorithm: 13
+      digestType: 2
+      digest: AE1FF592FE2D4A817BCE96BE401B6971E160515B476757F6CA9C7981F2572FB1
