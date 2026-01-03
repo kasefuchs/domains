@@ -11,3 +11,7 @@ records:
 
   TXT:
     - content: v=spf1 include:spf.improvmx.com ~all
+
+  CNAME:
+    - name: mc
+      target: coral.vps.kasefuchs.net.
