@@ -1,0 +1,15 @@
+---
+owners:
+  - kasefuchs
+
+records:
+  A:
+    - name: ovh
+      address: 57.129.115.142
+
+  SRV:
+    - name: _minecraft._tcp
+      target: coral.vps.kasefuchs.net.
+      priority: 5
+      weight: 5
+      port: 32565
