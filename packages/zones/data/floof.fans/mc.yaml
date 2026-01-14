@@ -1,0 +1,19 @@
+---
+owners:
+  - kasefuchs
+
+records:
+  A:
+    - name: ovh
+      address: 57.129.115.142
+
+  CNAME:
+    - name: "@"
+      target: coral.vps.kasefuchs.net.
+
+  SRV:
+    - name: _minecraft._tcp
+      target: mc.floof.fans.
+      priority: 5
+      weight: 5
+      port: 32565
