@@ -12,19 +12,19 @@ title: Requesting a Subdomain
 ```yaml
 ---
 owners:
-  - <your-github-username>
+  - <your-codeberg-username>
 
 records: {}
 ```
 
-The owners field is a list of GitHub usernames that manage the subdomain. Include at least one, usually your GitHub username.
+The owners field is a list of Codeberg usernames that manage the subdomain. Include at least one, usually your Codeberg username.
 
 You can optionally include **NS records** if you want to delegate your subdomain to another DNS provider:
 
 ```yaml
 ---
 owners:
-  - <your-github-username>
+  - <your-codeberg-username>
 
 records:
   NS:
