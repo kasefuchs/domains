@@ -9,7 +9,6 @@ export enum RecordType {
   SRV = "SRV",
   NS = "NS",
   DS = "DS",
-  ALIAS = "ALIAS",
 }
 
 export interface BaseRecord {
