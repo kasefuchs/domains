@@ -7,7 +7,7 @@ when:
         - .woodpecker/deploy.yaml
         - packages/zones/data/**.yaml
         - "**/package.json"
-        - "**.ts"
+        - "**/*.ts"
 
 variables:
   # language="json"
