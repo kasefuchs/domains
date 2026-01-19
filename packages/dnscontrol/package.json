@@ -3,8 +3,5 @@
   "type": "module",
   "version": "1.0.0",
   "license": "MIT",
-  "private": true,
-  "scripts": {
-    "postinstall": "dnscontrol write-types --dts-file types.d.ts"
-  }
+  "private": true
 }

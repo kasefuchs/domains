@@ -27,7 +27,6 @@ __pycache__/
 creds.json
 creds.*.json
 config/zones/
-packages/dnscontrol/types.d.ts
 
 # MKDocs
 .cache/

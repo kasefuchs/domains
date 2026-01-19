@@ -1,0 +1,5 @@
+# General
+* text=auto eol=lf
+
+# Linguist
+packages/dnscontrol/types.d.ts linguist-vendored
