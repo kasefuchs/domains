@@ -1,10 +1,10 @@
 ---
 owners:
-   - truthwhisper
+  - truthwhisper
 
 records:
-   NS:
-      - target: ns61.cloudns.net.
-      - target: ns62.cloudns.com.
-      - target: ns63.cloudns.net.
-      - target: ns64.cloudns.uk.
+  NS:
+    - target: ns61.cloudns.net.
+    - target: ns62.cloudns.com.
+    - target: ns63.cloudns.net.
+    - target: ns64.cloudns.uk.

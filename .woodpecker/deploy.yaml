@@ -1,0 +1,39 @@
+---
+when:
+  - event: push
+    branch: main
+    path:
+      include:
+        - .woodpecker/deploy.yaml
+        - packages/zones/data/**.yaml
+        - "**/package.json"
+        - "**.ts"
+
+variables:
+  # language="json"
+  - &creds-json |-
+    {
+      "dns": {
+        "TYPE": "DESEC",
+        "auth-token": "$DESEC_API_TOKEN"
+      }
+    }
+
+steps:
+  - name: build
+    image: node:24-alpine
+    commands:
+      - corepack enable
+      - pnpm install
+      - pnpm run --recursive --filter @domains/config... build
+
+  - name: deploy
+    image: stackexchange/dnscontrol
+    environment:
+      CREDS_JSON: *creds-json
+      DESEC_API_TOKEN:
+        from_secret: DESEC_API_TOKEN
+    commands:
+      - cd config/dist/
+      - printf '%s' "$${CREDS_JSON}" > creds.json
+      - dnscontrol push

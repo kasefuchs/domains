@@ -43,7 +43,7 @@ const recordFactories: RecordFactories = {
     { keyTag, algorithm, digestType, digest }: DSRecord,
     name,
     modifiers,
-  ) => DS(name, keyTag, algorithm, digestType, digest, modifiers)
+  ) => DS(name, keyTag, algorithm, digestType, digest, modifiers),
 };
 
 export function recordToDomainModifier<T extends keyof RecordMap>(
