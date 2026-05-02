@@ -1,12 +1,9 @@
----
 owners:
   - hoangxg4
-
 records:
   NS:
     - target: ns1.onii.pp.ua.
     - target: ns2.onii.pp.ua.
-
   DS:
     - keyTag: 32967
       algorithm: 13

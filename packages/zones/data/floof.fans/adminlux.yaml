@@ -1,7 +1,5 @@
----
 owners:
   - truthwhisper
-
 records:
   NS:
     - target: ns61.cloudns.net.

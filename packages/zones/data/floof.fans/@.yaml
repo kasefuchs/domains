@@ -1,18 +1,13 @@
----
 owners:
   - kasefuchs
-
 provider: cloudflare
-
 records:
   A:
     - address: 85.208.85.159
-
   MX:
     - priority: 10
       target: mx1.improvmx.com.
     - priority: 20
       target: mx2.improvmx.com.
-
   TXT:
     - content: v=spf1 include:spf.improvmx.com ~all

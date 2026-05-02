@@ -1,14 +1,12 @@
----
 when:
   - event: push
     branch: main
     path:
       include:
         - .woodpecker/deploy.yaml
-        - packages/zones/data/**.yaml
+        - packages/zones/data/**/*.yaml
         - "**/package.json"
         - "**/*.ts"
-
 steps:
   - name: build
     image: oven/bun:1.3.11-alpine
@@ -16,7 +14,6 @@ steps:
     commands:
       - bun install
       - bun run --workspaces build
-
   - name: deploy
     image: stackexchange/dnscontrol:4.30.0
     environment:

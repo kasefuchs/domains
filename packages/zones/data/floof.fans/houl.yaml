@@ -1,7 +1,5 @@
----
 owners:
   - houl
-
 records:
   CNAME:
     - target: pages.site.houl.codeberg.page.

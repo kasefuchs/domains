@@ -1,7 +1,5 @@
----
 owners:
   - 1770623-eng
-
 records:
   CNAME:
     - target: 1770623-eng.github.io.

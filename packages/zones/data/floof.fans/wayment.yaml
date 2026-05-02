@@ -1,12 +1,9 @@
----
 owners:
   - whymentt
-
 records:
   NS:
     - target: ns1.desec.io.
     - target: ns2.desec.org.
-
   DS:
     - keyTag: 16052
       algorithm: 13
