@@ -2,4 +2,4 @@ owners:
   - wuraxor
 records:
   CNAME:
-    - target: krabiworld.github.io.
+    - target: habr-a9q.pages.dev.
