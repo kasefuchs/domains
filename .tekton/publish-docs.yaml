@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
-  name: deploy-docs
+  name: publish-docs
   annotations:
     pipelinesascode.tekton.dev/on-event: "[push]"
     pipelinesascode.tekton.dev/on-target-branch: "[main]"
-    pipelinesascode.tekton.dev/on-path-change: "[.tekton/deploy-docs.yaml, docs/***]"
+    pipelinesascode.tekton.dev/on-path-change: "[.tekton/publish-docs.yaml, docs/***, requirements.txt]"
     pipelinesascode.tekton.dev/task: "[git-clone]"
 spec:
   taskRunTemplate:
@@ -42,7 +42,7 @@ spec:
             value: "{{ repo_url }}"
           - name: revision
             value: "{{ revision }}"
-      - name: build-and-deploy-docs
+      - name: publish-docs
         runAfter:
           - fetch-repository
         workspaces:
@@ -58,13 +58,13 @@ spec:
               securityContext:
                 runAsNonRoot: true
                 runAsUser: 65532
-              script: |
+              script: |-
                 #!/usr/bin/env sh
                 set -eu
                 zensical build
-            - name: deploy-pages
+            - name: publish-pages
               image: jfxs/wrangler:4.73
-              workingDir: $(workspaces.source.path)
+              workingDir: $(workspaces.source.path)/docs/build
               env:
                 - name: CLOUDFLARE_ACCOUNT_ID
                   valueFrom:
@@ -76,7 +76,7 @@ spec:
                     secretKeyRef:
                       name: cloudflare-pages-credentials
                       key: api-token
-              script: |
+              script: |-
                 #!/usr/bin/env sh
                 set -eu
-                wrangler pages deploy docs/build --project-name domains
+                wrangler pages deploy . --project-name domains
