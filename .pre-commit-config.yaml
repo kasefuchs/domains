@@ -13,3 +13,7 @@ repos:
     rev: v0.21.0
     hooks:
       - id: yamlfmt
+  - repo: https://github.com/JoC0de/pre-commit-prettier
+    rev: v3.8.1
+    hooks:
+      - id: prettier

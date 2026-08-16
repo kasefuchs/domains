@@ -1,39 +1,26 @@
-# --- IDE / Editor ---
-# JetBrains
+# Editors
 .idea/
+.vscode/
+.zed/
+.gram/
 *.iml
 
-# VSCode
-.vscode/
-
-# --- Node ---
-# Dependencies
+# Node.js
 node_modules/
-
-# Lockfiles
-pnpm-lock.yaml
 bun.lock
 
-# --- Python ---
-# Dependencies
+# Python
 .venv/
 __pycache__/
 
-# --- Tools / Bundlers ---
-# Rspack / Rslib
+# Rspack
 .rslib/
 
 # DNSControl
+config/zones/
 creds.json
 creds.*.json
-config/zones/
 
-# MKDocs
-.cache/
-
-# --- Build artifacts ---
-# Compiled output
+# Artifacts
 dist/
-
-# Generated docs
-docs/build/
+build/
