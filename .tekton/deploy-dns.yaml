@@ -1,0 +1,76 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  name: deploy-dns
+  annotations:
+    pipelinesascode.tekton.dev/on-event: "[push]"
+    pipelinesascode.tekton.dev/on-target-branch: "[main]"
+    pipelinesascode.tekton.dev/on-path-change: "[.tekton/deploy-dns.yaml, config/***, packages/***]"
+    pipelinesascode.tekton.dev/task: "[git-clone]"
+spec:
+  taskRunTemplate:
+    podTemplate:
+      securityContext:
+        fsGroup: 65532
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
+    - name: basic-auth
+      secret:
+        secretName: "{{ git_auth_secret }}"
+    - name: dnscontrol-creds
+      secret:
+        secretName: dnscontrol-credentials
+  pipelineSpec:
+    workspaces:
+      - name: source
+      - name: basic-auth
+      - name: dnscontrol-creds
+    tasks:
+      - name: fetch-repository
+        taskRef:
+          name: git-clone
+        workspaces:
+          - name: output
+            workspace: source
+          - name: basic-auth
+            workspace: basic-auth
+        params:
+          - name: url
+            value: "{{ repo_url }}"
+          - name: revision
+            value: "{{ revision }}"
+      - name: build-and-deploy
+        runAfter:
+          - fetch-repository
+        workspaces:
+          - name: source
+            workspace: source
+          - name: dnscontrol-creds
+            workspace: dnscontrol-creds
+        taskSpec:
+          workspaces:
+            - name: source
+            - name: dnscontrol-creds
+          steps:
+            - name: build-config
+              image: oven/bun:1.3.11-alpine
+              workingDir: $(workspaces.source.path)
+              script: |-
+                #!/usr/bin/env sh
+                set -eu
+                bun install
+                bun run --workspaces build
+            - name: dnscontrol-push
+              image: stackexchange/dnscontrol:4.30.0
+              workingDir: $(workspaces.source.path)/config/dist
+              script: |-
+                #!/usr/bin/env sh
+                set -eu
+                dnscontrol push --creds="$(workspaces.dnscontrol-creds.path)/creds.json"
